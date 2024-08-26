@@ -131,7 +131,7 @@ class InVideoQuizXBlock(StudioEditableXBlockMixin, XBlock):
             user permission mode
         """
         try:
-            if self.xmodule_runtime.user_is_staff:
+            if self.scope_ids.user_id is None:
                 return 'staff'
         except AttributeError:
             pass
